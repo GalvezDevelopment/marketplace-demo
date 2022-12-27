@@ -2,12 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ShowCaseComponent } from './show-case.component';
 import { MockStore, provideMockStore } from "@ngrx/store/testing";
 import { Product } from "../../../core/models/product.interface";
-import { MemoizedSelector, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { productInitialState } from "../../../store/reducers/products.reducers";
 import { ProductState } from "../../../core/models/product.state";
 import { TestScheduler } from "rxjs/testing";
 import { selectLoading, selectProducts } from "../../../store/selectors/products.seletors";
-import { AppState } from "../../../store/app.state";
 import { By } from "@angular/platform-browser";
 import { SharedModule } from "../../../shared/shared.module";
 import { ProductInfoComponent } from "../../../shared/components/product-info/product-info.component";
@@ -16,7 +15,6 @@ describe('ShowCaseComponent', () => {
   let component: ShowCaseComponent;
   let fixture: ComponentFixture<ShowCaseComponent>;
   let store: MockStore<ProductState>;
-  let mockProductSelector: MemoizedSelector<AppState, any>;
   const initialState = productInitialState;
 
   const testScheduler = new TestScheduler((actual, expected) => {

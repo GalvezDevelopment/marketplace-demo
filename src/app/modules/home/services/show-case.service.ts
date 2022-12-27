@@ -16,11 +16,11 @@ export class ShowCaseService implements IProductService {
   constructor(private readonly http: HttpClient) {
   }
 
-  getProducts(): Observable<any> {
-    return this.http.get<any[]>('assets/mock-products.json').pipe(delay(1000), map(this.mapProducts.bind(this)));
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('assets/mock-products.json').pipe(delay(1000), map(this.mapProducts.bind(this)));
   }
 
-  purchase(productsIds: number[]): Observable<void> {
+  purchase(productsIds: number[]): Observable<any> {
     return this.http.post<void>(this.ENDPOINT, { products: productsIds });
   }
 
