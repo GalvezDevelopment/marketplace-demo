@@ -1,13 +1,12 @@
 import { TestBed } from "@angular/core/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ShowCaseService } from "./show-case.service";
-import { ShowCaseMockService } from "./show-case.mock.service";
 import { Product } from "../../core/models/product.interface";
-import SpyObj = jasmine.SpyObj;
 import { delay, of, take } from "rxjs";
 import { TestScheduler } from "rxjs/testing";
+import SpyObj = jasmine.SpyObj;
 
-fdescribe('ShowCaseService', () => {
+describe('ShowCaseService', () => {
   let mockService: SpyObj<ShowCaseService>;
   let service: ShowCaseService;
   const products: Product[] = [
