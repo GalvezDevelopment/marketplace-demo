@@ -1,0 +1,35 @@
+form {
+  height: 100%;
+
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    mat-form-field {
+      box-sizing: border-box;
+      padding: 0 5px;
+    }
+
+    .checkout-form__address-form {
+      display: flex;
+      flex-flow: row wrap;
+
+      & > mat-form-field {
+        &:first-child {
+          width: 100%;
+        }
+        width: 50%;
+      }
+    }
+
+    .checkout-form__total {
+      font-weight: bold;
+      padding: 25px 0;
+    }
+
+    .checkout-form__actions {
+      text-align: center;
+    }
+  }
+}

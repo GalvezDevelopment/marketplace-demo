@@ -1,0 +1,23 @@
+<ng-container [ngSwitch]="view">
+  <ng-container *ngSwitchCase="productInfoView.ShowCase">
+    <div class="container-showcase" data-cy="showcase-item" (click)="addProduct()" [ngClass]="{ inBasket: product.inBasket }">
+      <img [src]="product.image" [alt]="product.name">
+      <section class="container-showcase__title">{{ product.name }}</section>
+      <section>${{ product.price | number: '1.1-2' }}</section>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="productInfoView.Basket">
+    <div class="container-showcase basket" data-cy="basket-item">
+      <img [src]="product.image" [alt]="product.name">
+      <div class="info">
+        <section class="container-showcase__title">{{ product.name }}</section>
+        <section>${{ product.price | number: '1.1-2' }}</section>
+      </div>
+      <div class="action">
+        <button mat-icon-button (click)="removeProduct()" data-cy="basket-remove-btn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

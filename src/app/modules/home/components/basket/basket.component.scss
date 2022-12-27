@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  .basket__list {
+    flex: 1;
+  }
+
+  .basket__total {
+    padding: 20px 0;
+    font-weight: bold;
+  }
+
+  .basket__actions {
+    text-align: center;
+  }
+
+  .basket--noProducts {
+    justify-content: center;
+    text-align: center;
+  }
+}

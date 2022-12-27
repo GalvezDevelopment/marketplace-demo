@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <h2 mat-butto routerLink="/">MarketPlace</h2>
+  <span class="header-spacer"></span>
+  <a mat-flat-button color="primary">
+    <mat-icon fontIcon="wallet"></mat-icon>
+    ${{ wallet$ | async | number: '1.1-2' }}
+  </a>
+  <a mat-flat-button color="primary" routerLink="/basket" data-cy="basket">
+    <mat-icon fontIcon="shopping_basket"></mat-icon>
+    Basket {{ productsCount$ | async }}
+  </a>
+</mat-toolbar>

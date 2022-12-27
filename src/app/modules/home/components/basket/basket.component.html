@@ -1,0 +1,14 @@
+<ng-container *ngIf="productsTotal$ | async; else noProducts">
+  <div class="basket__list">
+    <app-product-info *ngFor="let product of products$ | async" [product]="product"
+                      [view]="productInfoView.Basket"></app-product-info>
+  </div>
+  <div class="basket__total">Total: ${{ productsTotal$ | async }}</div>
+  <div class="basket__actions">
+    <button mat-flat-button color="primary" routerLink="/checkout" [disabled]="wallet$ | async" data-cy="basket-checkout-btn">Checkout</button>
+    <div *ngIf="wallet$ | async">Insufficient funds!</div>
+  </div>
+</ng-container>
+<ng-template #noProducts>
+  <h2 class="basket--noProducts" data-cy="empty-basket">There are no products in the basket</h2>
+</ng-template>

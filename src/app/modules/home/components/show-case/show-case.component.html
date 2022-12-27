@@ -1,0 +1,6 @@
+<p *ngIf="loading$ | async">Loading...</p>
+<div class="showcase-container" data-cy="showcase-container">
+  <ng-container *ngFor="let product of (products$ | async)">
+    <app-product-info *ngIf="!product.purchased" [product]="product"></app-product-info>
+  </ng-container>
+</div>

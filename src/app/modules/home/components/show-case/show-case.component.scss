@@ -1,0 +1,8 @@
+.showcase-container {
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  row-gap: 25px;
+}

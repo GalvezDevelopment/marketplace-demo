@@ -1,0 +1,49 @@
+<div *ngIf="totalProducts$ | async; else purchase">
+  <form [formGroup]="checkoutForm" (ngSubmit)="pay()">
+    <div class="checkout-form">
+      <div app-section-title>* Name</div>
+      <div class="checkout-form__name-form" formGroupName="name">
+        <mat-form-field>
+          <mat-label for="name">First</mat-label>
+          <input type="text" matInput formControlName="first" data-cy="checkout-first-input">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="lastName">Last</mat-label>
+          <input matInput type="text" formControlName="last" data-cy="checkout-last-input"/>
+        </mat-form-field>
+      </div>
+      <div app-section-title>* Address</div>
+      <div class="checkout-form__address-form" formGroupName="address">
+        <mat-form-field class="street-form">
+          <mat-label for="street">Street</mat-label>
+          <input matInput type="text" formControlName="street" data-cy="checkout-street-input"/>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="city">City</mat-label>
+          <input matInput type="text" formControlName="city" data-cy="checkout-city-input"/>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label for="state">State</mat-label>
+          <input matInput type="text" formControlName="state" data-cy="checkout-state-input"/>
+        </mat-form-field>
+      </div>
+      <div app-section-title>* Email</div>
+      <mat-form-field>
+        <input matInput type="email" formControlName="email" data-cy="checkout-email-input"/>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <div class="checkout-form__total">
+        <span>Total: ${{ totalProducts$ | async }}</span>
+      </div>
+      <div class="checkout-form__actions">
+        <button mat-flat-button color="primary" type="submit" data-cy="checkout-pay-btn">Pay</button>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #purchase>
+  <div class="empty-basket" data-cy="checkout-success">
+    <h2>Thank you for your purchase</h2>
+    <a mat-flat-button color="primary" routerLink="/" data-cy="checkout-buyMore-btn">Buy more</a>
+  </div>
+</ng-template>
