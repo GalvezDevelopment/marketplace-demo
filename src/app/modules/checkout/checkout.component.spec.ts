@@ -2,17 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckoutComponent } from './checkout.component';
 import { MockStore, provideMockStore } from "@ngrx/store/testing";
-import { Product } from "../../../core/models/product.interface";
+import { Product } from "../core/models/product.interface";
 import { Store } from "@ngrx/store";
-import { selectBasketTotal } from "../../../store/selectors/products.seletors";
+import { selectBasketTotal } from "../store/selectors/products.seletors";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDividerModule } from "@angular/material/divider";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TestScheduler } from "rxjs/testing";
-import { AppState } from "../../../store/app.state";
-import { purchaseProducts } from "../../../store/actions/products.actions";
+import { AppState } from "../store/app.state";
+import { purchaseProducts } from "../store/actions/products.actions";
 import { By } from "@angular/platform-browser";
 
 describe('CheckoutComponent', () => {

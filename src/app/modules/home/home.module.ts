@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BasketComponent } from './components/basket/basket.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutComponent } from '../checkout/checkout.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from "./home-routing.module";
 import { CoreModule } from "../core/core.module";
@@ -15,7 +15,6 @@ import { MARKETPLACE_MAT_FORM_FIELD_OPTIONS } from "../core/tokens/mat-form-fiel
 @NgModule({
   declarations: [
     BasketComponent,
-    CheckoutComponent,
     HomeComponent,
     ShowCaseComponent
   ],
