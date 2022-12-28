@@ -16,3 +16,5 @@ export const selectBasketCount =
 export const selectBasketTotal =
   createSelector(selectProductsFeature, (a: ProductState) => +formatNumber(a.products.filter(p => p.inBasket)
     .reduce((prev, curr) => prev + curr.price, 0), 'en-US', '1.1-2'));
+export const selectPurchasedProducts =
+  createSelector(selectProductsFeature, (a: ProductState) => a.products.filter(product => product.purchased))

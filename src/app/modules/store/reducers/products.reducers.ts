@@ -5,7 +5,7 @@ import { deepCopy } from "../../core/utils/utils";
 import {
   enableDisableProduct,
   loadedProducts,
-  loadProducts,
+  loadProducts, purchasedProducts,
   purchaseProducts,
   removeBasketProducts
 } from "../actions/products.actions";
@@ -26,11 +26,17 @@ export const productsReducer = createReducer(
     }
     return { ...state, products };
   }),
+  on(purchaseProducts, (state) => {
+    return { ...state, loading: true }
+  }),
+  on(purchasedProducts, (state, { loading }) => {
+    return { ...state, loading };
+  }),
   on(removeBasketProducts, (state) => {
     const products: Product[] = deepCopy(state.products);
     products.filter(p => p.inBasket).forEach(p => {
       p.inBasket = false;
     });
-    return {...state, products };
+    return { ...state, products };
   })
 );

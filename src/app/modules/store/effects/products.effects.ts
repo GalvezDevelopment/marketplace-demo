@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, EMPTY, map, mergeMap, of, switchMap, take, tap } from "rxjs";
+import { catchError, EMPTY, map, mergeMap, switchMap, take } from "rxjs";
 import { ShowCaseService } from "../../home/services/show-case.service";
 import { AppState } from "../app.state";
-import { selectBasket, selectBasketTotal, selectProducts } from "../selectors/products.seletors";
+import { selectBasket, selectPurchasedProducts } from "../selectors/products.seletors";
 import { Product } from "../../core/models/product.interface";
 import { chargeWallet } from "../actions/wallet.actions";
-import { loadedProducts, loadProducts, purchaseProducts } from "../actions/products.actions";
+import { loadedProducts, loadProducts, purchasedProducts, purchaseProducts } from "../actions/products.actions";
 import { Store } from "@ngrx/store";
 
 @Injectable()
@@ -25,10 +25,21 @@ export class ProductsEffects {
       take(1),
       switchMap((products: Product[]) => this.showCaseSrv.purchase(products.map(p => p.id)).pipe(
         map(() => ({
-          type: chargeWallet.type,
-          amount: products.reduce((prev, curr) => prev + curr.price, 0)
-        })),
+          type: purchasedProducts.type,
+          loading: false
+        }))
       ))
+    ))
+  ));
+
+  purchasedProducts$ = createEffect(() => this.actions$.pipe(
+    ofType(purchasedProducts),
+    mergeMap(() => this.store.select(selectPurchasedProducts).pipe(
+      take(1),
+      map(products => ({
+        type: chargeWallet.type,
+        amount: products.reduce((prev, curr) => prev + curr.price, 0)
+      })),
     ))
   ));
 
