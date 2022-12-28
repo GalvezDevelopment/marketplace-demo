@@ -1,9 +1,11 @@
 <ng-container [ngSwitch]="view">
   <ng-container *ngSwitchCase="productInfoView.ShowCase">
-    <div class="container-showcase" data-cy="showcase-item" (click)="addProduct()" [ngClass]="{ inBasket: product.inBasket }">
+    <div class="container-showcase" data-cy="showcase-item">
       <img [src]="product.image" [alt]="product.name">
       <section class="container-showcase__title">{{ product.name }}</section>
-      <section>${{ product.price | number: '1.1-2' }}</section>
+      <section class="container-showcase__price">${{ product.price | number: '1.1-2' }}</section>
+      <section class="container-showcase__addBtn" [ngClass]="{ inBasket: product.inBasket }"
+               (click)="addProduct()">{{ buttonText }}</section>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="productInfoView.Basket">

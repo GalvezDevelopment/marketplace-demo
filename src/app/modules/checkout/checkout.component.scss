@@ -1,35 +1,41 @@
-form {
-  height: 100%;
+.checkout-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 6px;
 
-  .checkout-form {
-    display: flex;
-    flex-direction: column;
+  form {
     height: 100%;
 
-    mat-form-field {
-      box-sizing: border-box;
-      padding: 0 5px;
-    }
-
-    .checkout-form__address-form {
+    .checkout-form {
       display: flex;
-      flex-flow: row wrap;
+      flex-direction: column;
+      height: 100%;
 
-      & > mat-form-field {
-        &:first-child {
-          width: 100%;
-        }
-        width: 50%;
+      mat-form-field {
+        box-sizing: border-box;
+        padding: 0 5px;
       }
-    }
 
-    .checkout-form__total {
-      font-weight: bold;
-      padding: 25px 0;
-    }
+      .checkout-form__address-form {
+        display: flex;
+        flex-flow: row wrap;
 
-    .checkout-form__actions {
-      text-align: center;
+        & > mat-form-field {
+          &:first-child {
+            width: 100%;
+          }
+          width: 50%;
+        }
+      }
+
+      .checkout-form__actions {
+        text-align: center;
+        margin-top: 18px;
+
+        button[mat-flat-button] {
+          padding: 0 35px;
+        }
+      }
     }
   }
 }

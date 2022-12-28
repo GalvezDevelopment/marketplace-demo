@@ -1,4 +1,4 @@
-<div *ngIf="totalProducts$ | async; else purchase">
+<div class="checkout-container" *ngIf="totalProducts$ | async; else purchase">
   <form [formGroup]="checkoutForm" (ngSubmit)="pay()">
     <div class="checkout-form">
       <div app-section-title>* Name</div>
@@ -31,12 +31,8 @@
       <mat-form-field>
         <input matInput type="email" formControlName="email" data-cy="checkout-email-input"/>
       </mat-form-field>
-      <mat-divider></mat-divider>
-      <div class="checkout-form__total">
-        <span>Total: ${{ totalProducts$ | async }}</span>
-      </div>
       <div class="checkout-form__actions">
-        <button mat-flat-button color="primary" type="submit" data-cy="checkout-pay-btn">Pay</button>
+        <button mat-flat-button color="primary" type="submit" data-cy="checkout-pay-btn">Pay ${{ totalProducts$ | async }}</button>
       </div>
     </div>
   </form>
