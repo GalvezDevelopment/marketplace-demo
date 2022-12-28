@@ -26,13 +26,6 @@ export const productsReducer = createReducer(
     }
     return { ...state, products };
   }),
-  // on(purchaseProducts, (state) => {
-  //   const products: Product[] = deepCopy(state.products);
-  //   products.filter(p => p.inBasket).forEach(p => {
-  //     p.purchased = true;
-  //   });
-  //   return {...state, products };
-  // }),
   on(removeBasketProducts, (state) => {
     const products: Product[] = deepCopy(state.products);
     products.filter(p => p.inBasket).forEach(p => {

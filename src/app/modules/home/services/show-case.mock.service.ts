@@ -106,7 +106,7 @@ export class ShowCaseMockService implements IProductService {
   }
 
   getProducts(): Observable<Product[]> {
-    return of(deepCopy(this.products));
+    return of(deepCopy(this.products)).pipe(delay(2000));
   }
 
   purchase(productsIds: number[]): Observable<any> {

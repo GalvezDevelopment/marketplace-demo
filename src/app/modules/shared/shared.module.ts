@@ -6,13 +6,15 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormSectionTitleDirective } from './directives/form-section-title/form-section-title.directive';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
 @NgModule({
   declarations: [
     ProductInfoComponent,
-    FormSectionTitleDirective
+    FormSectionTitleDirective,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { FormSectionTitleDirective } from './directives/form-section-title/form-
     FormsModule,
     ReactiveFormsModule,
     ProductInfoComponent,
-    FormSectionTitleDirective
+    FormSectionTitleDirective,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
