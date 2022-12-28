@@ -48,10 +48,6 @@ describe('ShowCaseComponent', () => {
       const expected = helpers.cold('a', { a: true });
       const loadingState = store.select(selectLoading);
       helpers.expectObservable(loadingState).toEqual(expected);
-      component.ngOnInit();
-      fixture.detectChanges();
-      const loadingLabel = fixture.debugElement.query(By.css('p'));
-      expect(loadingLabel).toBeTruthy();
     });
   });
 

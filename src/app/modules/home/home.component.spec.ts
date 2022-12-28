@@ -6,6 +6,7 @@ import { provideMockStore } from "@ngrx/store/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
+import { SharedModule } from "../shared/shared.module";
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -15,7 +16,7 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent, HeaderComponent],
       providers: [provideMockStore()],
-      imports: [RouterTestingModule, MatToolbarModule, MatIconModule]
+      imports: [RouterTestingModule, MatToolbarModule, MatIconModule, SharedModule]
     })
     .compileComponents();
 
